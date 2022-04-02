@@ -1,35 +1,27 @@
-import { AspectRatio } from "@chakra-ui/react";
-import "./App.css";
 import React from "react";
 import Navbar from "./components/Navbar";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import Home from "./components/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {useState} from "react"
 
 function App() {
-  const [state, setState] = useState([]);
-  useEffect(() => {
-    axios
-    .get("http://localhost:8000/videos")
-    .then((response) => {
-      setState(response.data);
-    })
-    .catch((error) => {
-      console.log(error.message);
-    });
-  }, []);
+  const [isLoaded, setLoaded] = useState(false)
+  const handleSpinner = () => {
+    setLoaded(true);
+  }
+  
   return (
     <>
-      <Navbar></Navbar>
-      <div className="bg-dark">
-        <div className="container mt-5" styles={{ display: "flex" }}>
-          {state.map((element) => (
-            <AspectRatio maxW="500px" ratio={1.5} className="mt-5" key={element._id}>
-              <iframe title={element.title} src={element.src} allowFullScreen />
-            </AspectRatio>
-          ))}
-          <button className="btn btn-primary">Like</button>
-        </div>
-      </div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/Home" element={<Home isLoaded={isLoaded} setLoaded={handleSpinner} />}></Route>
+          <Route path="/" element={<Home isLoaded={isLoaded} setLoaded={handleSpinner} />}></Route>
+
+          <Route path="/AddVideos" element={<Home isLoaded={isLoaded} setLoaded={handleSpinner} />}></Route>
+          <Route path="/New" element={<Home isLoaded={isLoaded} setLoaded={handleSpinner} />}></Route>
+        </Routes>
+      </Router>
     </>
   );
 }

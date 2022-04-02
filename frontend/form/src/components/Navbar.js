@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 const Navbar = () => {
   return (
     <>
@@ -6,9 +7,9 @@ const Navbar = () => {
         style={{ boxShadow: "0px 8px 8px -6px #cfc678" }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand text-warning" href="/Home">
+          <Link className="navbar-brand text-warning" to="/Home">
             ProLance IT
-          </a>
+          </Link>
           <button
             className="navbar-toggler "
             type="button"
@@ -23,42 +24,32 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link text-white"
                   aria-current="page"
-                  href="/AddStudents"
+                  to="/AddVideos"
                 >
                   Add Videos
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link text-white"
                   aria-current="page"
-                  href="/StudentsList"
+                  to="/"
                 >
                   My PlayList
                   <span className="badge bg-warning text-dark mx-1"></span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link text-white"
                   aria-current="page"
-                  href="/AddMarks"
+                  to="/New"
                 >
                   New Releases
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link text-white"
-                  aria-current="page"
-                  href="/marks"
-                >
-                  Gaming
-                  <span className="badge bg-warning text-dark mx-1"></span>
-                </a>
+                </Link>
               </li>
             </ul>
             <form className="d-flex">
@@ -68,7 +59,7 @@ const Navbar = () => {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <a href="/Login">
+              <Link to="/">
                 <button
                   className="btn btn-warning AddstudentBtn mx-2 px-4"
                   style={{ boxShadow: "0 0 0 1px #8f8d8d" }}
@@ -76,7 +67,7 @@ const Navbar = () => {
                 >
                   Login
                 </button>
-              </a>
+              </Link>
 
               <button
                 className="btn btn-warning AddstudentBtn"
