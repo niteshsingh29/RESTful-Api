@@ -1,0 +1,21 @@
+{
+  "name": "restfulapi",
+  "version": "1.0.0",
+  "description": "RESTful Api ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "RESTful Api"
+  },
+  "author": "Nitesh Singh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9",
+    "nodemon": "^2.0.15"
+  }
+}
